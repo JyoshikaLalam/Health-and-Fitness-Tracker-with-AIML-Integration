@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Dashboard</h1>
+    <h2>Your Activities</h2>
+    <ul>
+        {% for activity in activities %}
+        <li>{{ activity.activity_type }}: {{ activity.duration }} minutes</li>
+        {% endfor %}
+    </ul>
+
+    <h2>Your Nutrition</h2>
+    <ul>
+        {% for nutrition in nutritions %}
+        <li>{{ nutrition.food_item }}: {{ nutrition.calories }} calories</li>
+        {% endfor %}
+    </ul>
+
+    <form action="recommendations.html" method="POST">
+        <input type="text" name="user_data" placeholder="Enter your data" required>
+        <button type="submit">Get Recommendations</button>
+    </form>
+</body>
+</html>
